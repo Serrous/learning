@@ -1,0 +1,31 @@
+<script>
+function GetSum(hand) {
+	var sum=0
+//считаем сумму всех карт, кроме тузов
+	for (var i=0; i<hand.length; i++) {
+		var card = hand[i];
+		if (card!='A'){
+			if(card=='J' || card=='Q' || card=='K'){
+				sum=sum+10;
+			} else sum=sum+parseInt(card);
+		}
+
+	}
+
+	for (var i=0; i<hand.length; i++) {
+		var card=hand[i];
+		if (card=='A'){
+			if(sum>10){
+				sum=sum+1;
+			} else {
+				sum=sum+11;
+			}
+	}
+		}
+return sum;
+}
+
+var a=['A', 'K']
+alert(a)
+alert(GetSum(a));
+</script>

@@ -1,0 +1,17 @@
+<meta charset-"utf-8">
+<script>
+var n=0
+alert('Поехали!')
+do {
+	if ((Math.random() * 6) >1 ) {
+	alert('Повезло!');
+	}
+	else {
+		alert('В голову!');
+		break;
+	}
+	
+	n++;
+} while(prompt('Еще партию? Да/Нет')!='нет')
+alert('Итого раундов ' + n);
+</script>

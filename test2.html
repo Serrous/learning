@@ -1,0 +1,17 @@
+<meta charset-"utf-8">
+<script>
+var arr=[];
+var round=prompt('Введите желаемое количество раундов');
+var zero=0;
+var i=0;
+
+for(i=0; i<round; i++){
+	n=Math.round(Math.random()*36);
+	if (n!=0){
+		n=(n % 2)*2-1;
+	}
+	arr.push(n);
+}
+
+alert(arr);
+</script>

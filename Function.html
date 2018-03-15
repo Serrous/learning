@@ -1,0 +1,49 @@
+<meta charset-"utf-8">
+<script>
+
+
+//генерируем случайные карты
+function GetRandomInt(min, max) {
+	return Math.floor(Math.random()*(max-min+1))+min;
+}
+
+//сдаем карты
+function GetCards() {
+	var cards = ['6','7','8','9','10','J','Q','K','A'];
+	return cards[GetRandomInt(0, cards.length-1)];
+
+}
+
+//считаем сумму
+function GetSum(hand) {
+	var sum=0
+//считаем сумму всех карт, кроме тузов
+	for (var i=0; i<hand.length; i++) {
+		var card = hand[i];
+		if (card!='A'){
+			if(card=='J' || card=='Q' || card=='K'){
+				sum=sum+10;
+			} else sum=sum+parseInt(card);
+		}
+	}
+//счмиаем сумму с тузами
+	for (var i=0; i<hand.length; i++) {
+		var card=hand[i];
+		if (card=='A'){
+			if(sum>10){
+				sum=sum+1;
+			} else {
+				sum=sum+11;
+			}
+		}
+	}
+return sum;
+}
+
+var dealer=[GetCards()];
+var player=[GetCards(), GetCards()];
+
+alert('Дилер: ' + dealer.join(' ') + ' Игрок: ' + player.join(' '));
+alert('Сумма очков у игрока на руках: ' + GetSum(player));
+
+</script>
